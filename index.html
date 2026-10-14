@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#172a3a">
+  <meta name="description" content="1789~1886년 근대사 연표를 직접 입력과 4지선다로 암기하는 학습 사이트">
+  <title>근대사 연표 암기장</title>
+  <style>
+    :root{color-scheme:light;--ink:#172a3a;--ink-soft:#3d5060;--muted:#74818b;--paper:#f6f4ef;--card:#fffefa;--line:#e4e0d7;--accent:#cc5c3b;--accent-pale:#f9e8e1;--blue:#496d86;--blue-pale:#e8f0f4;--green:#297451;--green-pale:#e5f3eb;--red:#a73737;--red-pale:#f9e8e6;--shadow:0 10px 32px rgba(25,41,52,.07)}
+    *{box-sizing:border-box}html{min-height:100%;background:var(--paper)}body{margin:0;color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #80a9c3;outline-offset:2px}
+    .shell{width:min(100% - 32px,780px);margin:0 auto;padding:26px 0 40px}.masthead{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:11px}.brand-mark{width:42px;height:42px;border-radius:14px;background:var(--ink);display:grid;place-items:center;color:white;font-weight:850;letter-spacing:-.07em;font-size:17px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.13em;color:var(--accent);text-transform:uppercase}.brand-name{font-size:14px;font-weight:800;letter-spacing:-.02em}.local-pill{font-size:11px;border:1px solid var(--line);background:var(--card);color:var(--muted);border-radius:99px;padding:7px 10px;white-space:nowrap}
+    .hero{margin-bottom:22px}.hero h1{font-size:clamp(27px,5.6vw,40px);line-height:1.16;letter-spacing:-.065em;margin:0 0 11px;font-weight:900}.hero p{margin:0;color:var(--ink-soft);font-size:14px;max-width:590px}.hero strong{color:var(--ink)}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0 20px}.stat{padding:13px 14px;background:rgba(255,254,250,.75);border:1px solid var(--line);border-radius:15px;min-width:0}.stat-label{font-size:11px;color:var(--muted);font-weight:700}.stat-value{font-size:21px;font-weight:850;letter-spacing:-.04em;margin-top:2px}.stat-value small{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:0}
+    .progress-wrap{margin:-5px 0 22px}.progress-meta{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);margin-bottom:7px}.progress-track{height:7px;background:#e7e3dc;border-radius:99px;overflow:hidden}.progress-fill{height:100%;width:0;background:var(--green);border-radius:99px;transition:width .25s ease}
+    .controls{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px;margin-bottom:14px;box-shadow:0 2px 8px rgba(25,41,52,.02)}.mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mode-tab{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 10px;text-align:left;color:var(--ink-soft);transition:.15s}.mode-tab[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:white}.mode-tab-title{display:block;font-size:13px;font-weight:800}.mode-tab-desc{display:block;font-size:11px;opacity:.76;margin-top:2px}.filters{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:13px;flex-wrap:wrap}.filter-label{font-size:12px;color:var(--muted);font-weight:700}.select-wrap select{max-width:100%;border:1px solid var(--line);border-radius:10px;background:white;padding:9px 32px 9px 11px;color:var(--ink);font-size:12px}
+    .quiz-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,4vw,29px);box-shadow:var(--shadow);position:relative;overflow:hidden}.quiz-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}.question-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}.type-chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;background:var(--accent-pale);color:#924128;font-weight:800;font-size:11px;padding:6px 9px}.type-chip.choice{background:var(--blue-pale);color:#36576c}.question-count{font-size:12px;color:var(--muted);white-space:nowrap}.prompt{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:9px}.event-name{font-size:clamp(22px,4.8vw,31px);font-weight:850;letter-spacing:-.05em;line-height:1.35;overflow-wrap:anywhere;margin:0 0 22px}.answer-form{display:flex;gap:9px}.year-input{width:100%;min-width:0;border:1px solid #d8d4cb;background:#fff;border-radius:12px;padding:14px 15px;font-size:18px;font-weight:750;letter-spacing:.06em;color:var(--ink)}.year-input::placeholder{color:#b0b5b8;font-size:14px;font-weight:500;letter-spacing:0}.primary-btn{flex-shrink:0;border:0;background:var(--accent);color:white;border-radius:12px;padding:0 18px;font-weight:800;font-size:14px;min-height:51px}.primary-btn:disabled{opacity:.55;cursor:not-allowed}.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.choice-btn{background:white;border:1px solid var(--line);border-radius:13px;padding:14px 12px;text-align:left;color:var(--ink);font-size:17px;font-weight:800;transition:background .12s,border-color .12s}.choice-btn .choice-letter{display:inline-grid;place-items:center;width:23px;height:23px;margin-right:8px;border-radius:7px;background:#f0eee8;color:var(--muted);font-size:11px}.choice-btn:hover:not(:disabled){border-color:#aab8c1;background:#f7fafb}.choice-btn:disabled{cursor:default}.choice-btn.correct{border-color:#8dc5a6;background:var(--green-pale);color:var(--green)}.choice-btn.wrong{border-color:#e0aaa4;background:var(--red-pale);color:var(--red)}.answer-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:17px;flex-wrap:wrap}.text-btn{border:0;background:transparent;color:var(--muted);font-size:12px;font-weight:750;padding:8px 2px;text-decoration:underline;text-underline-offset:3px}.next-btn{background:var(--ink);color:white;border:0;border-radius:11px;padding:11px 17px;font-size:13px;font-weight:800;min-height:43px}.next-btn:disabled{opacity:.35;cursor:not-allowed}.feedback{margin-top:16px;padding:13px 14px;border-radius:12px;font-size:13px;font-weight:650;display:none}.feedback.show{display:block}.feedback.good{background:var(--green-pale);color:var(--green)}.feedback.bad{background:var(--red-pale);color:var(--red)}.feedback.neutral{background:#f0eee8;color:var(--ink-soft)}.feedback strong{font-size:15px}.footnote{margin:19px 3px 0;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;color:var(--muted);font-size:11px}.footnote p{margin:0}.reset-btn{border:0;padding:0;background:none;color:var(--muted);font-size:11px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.footer{margin-top:30px;padding-top:15px;border-top:1px solid var(--line);color:#92999b;font-size:11px;display:flex;justify-content:space-between;gap:10px}
+    @media(max-width:480px){.shell{width:min(100% - 22px,780px);padding-top:17px}.masthead{margin-bottom:23px}.brand-mark{width:38px;height:38px}.local-pill{font-size:10px;padding:6px 8px}.hero p{font-size:13px}.stats{gap:7px;margin-top:20px}.stat{padding:11px 10px;border-radius:12px}.stat-label{font-size:10px}.stat-value{font-size:19px}.controls{padding:11px;border-radius:15px}.mode-tab{padding:10px 9px}.mode-tab-title{font-size:12px}.mode-tab-desc{font-size:10px}.filters{align-items:flex-start}.select-wrap{width:100%}.select-wrap select{width:100%}.quiz-card{border-radius:18px}.answer-form{gap:7px}.primary-btn{padding:0 14px}.choice-grid{gap:7px}.choice-btn{padding:13px 9px;font-size:16px}.choice-btn .choice-letter{margin-right:5px}.footer{font-size:10px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand"><div class="brand-mark" aria-hidden="true">時代</div><div><div class="eyebrow">TIMELINE STUDY</div><div class="brand-name">근대사 연표 암기장</div></div></div>
+      <div class="local-pill">1789 — 1886</div>
+    </header>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">연도를 기억하는<br>가장 확실한 방법.</h1>
+      <p>중요도에 따라 문제 풀이 방식이 달라집니다. <strong>주요 사건은 연도를 직접 입력</strong>하고, 중요도가 낮은 사건은 <strong>4지선다</strong>로 가볍게 확인하세요.</p>
+    </section>
+    <section class="stats" aria-label="학습 현황">
+      <div class="stat"><div class="stat-label">전체 사건</div><div class="stat-value" id="total-stat">68<small>개</small></div></div>
+      <div class="stat"><div class="stat-label">직접 입력</div><div class="stat-value" id="input-stat">66<small>개</small></div></div>
+      <div class="stat"><div class="stat-label">4지선다</div><div class="stat-value" id="choice-stat">2<small>개</small></div></div>
+    </section>
+    <section class="progress-wrap" aria-label="암기 진도">
+      <div class="progress-meta"><span>내가 외운 사건</span><span id="progress-label">0 / 68개 · 0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </section>
+    <section class="controls" aria-label="문제 설정">
+      <div class="mode-tabs" role="group" aria-label="문제 유형">
+        <button class="mode-tab" id="input-tab" type="button" aria-pressed="true"><span class="mode-tab-title">주요 사건 · 직접 입력</span><span class="mode-tab-desc">사건을 보고 연도를 숫자로 입력</span></button>
+        <button class="mode-tab" id="choice-tab" type="button" aria-pressed="false"><span class="mode-tab-title">중요도 낮음 · 4지선다</span><span class="mode-tab-desc">사건에 해당하는 연도 선택</span></button>
+      </div>
+      <div class="filters"><label class="filter-label" for="period-select">학습 범위</label><div class="select-wrap"><select id="period-select"><option value="all">전체 연표 · 1789~1886년</option><option value="early">혁명과 나폴레옹 · 1789~1815년</option><option value="middle">빈 체제와 자유주의 · 1816~1848년</option><option value="late">민족주의와 통일 · 1849~1886년</option></select></div></div>
+    </section>
+    <section class="quiz-card" aria-labelledby="event-name">
+      <div class="question-head"><span class="type-chip" id="type-chip">주요 사건 · 직접 입력</span><span class="question-count" id="question-count">문제 1 / 66</span></div>
+      <div class="prompt" id="prompt-label">이 사건이 일어난 연도를 입력하세요.</div>
+      <h2 class="event-name" id="event-name">삼부회</h2>
+      <form class="answer-form" id="answer-form" autocomplete="off">
+        <input class="year-input" id="year-input" type="number" inputmode="numeric" pattern="[0-9]*" min="1000" max="2100" placeholder="연도 입력 (예: 1789)" aria-label="사건이 일어난 연도" required>
+        <button class="primary-btn" id="check-button" type="submit">정답 확인</button>
+      </form>
+      <div class="choice-grid" id="choice-grid" hidden aria-label="연도 선택지"></div>
+      <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+      <div class="answer-tools"><button class="text-btn" id="reveal-button" type="button">정답 보기</button><button class="next-btn" id="next-button" type="button" disabled>다음 문제 →</button></div>
+    </section>
+    <div class="footnote"><p>진도는 이 기기의 브라우저에 자동 저장됩니다.<br>다른 기기나 브라우저에서는 진도가 공유되지 않습니다.</p><button class="reset-btn" id="reset-button" type="button">진도 초기화</button></div>
+    <footer class="footer"><span>근대사 연표 학습</span><span>원본 엑셀의 사건·연도 기준</span></footer>
+  </main>
+  <script>
+    const EVENTS = [{"year":1789,"event":"삼부회","mode":"input","sourceColumn":"B","id":1},{"year":1789,"event":"국민의회 (-91)","mode":"input","sourceColumn":"C","id":2},{"year":1789,"event":"테니스코트 서약","mode":"input","sourceColumn":"D","id":3},{"year":1789,"event":"바스티유감옥 함락","mode":"input","sourceColumn":"E","id":4},{"year":1789,"event":"인권선언","mode":"input","sourceColumn":"F","id":5},{"year":1789,"event":"미.워싱턴 초대 대통령","mode":"input","sourceColumn":"H","id":6},{"year":1791,"event":"루이16세 탈출 시도","mode":"input","sourceColumn":"B","id":7},{"year":1791,"event":"1791년 헌법","mode":"input","sourceColumn":"C","id":8},{"year":1791,"event":"입법의회 -92","mode":"input","sourceColumn":"D","id":9},{"year":1792,"event":"혁명전쟁 발발","mode":"input","sourceColumn":"B","id":10},{"year":1792,"event":"왕권정지","mode":"input","sourceColumn":"C","id":11},{"year":1792,"event":"국민 공회 -95","mode":"input","sourceColumn":"D","id":12},{"year":1793,"event":"루이 16세 처형 (프공죽)","mode":"input","sourceColumn":"B","id":13},{"year":1793,"event":"혁명재판소","mode":"input","sourceColumn":"C","id":14},{"year":1793,"event":"자코뱅 헌법","mode":"input","sourceColumn":"D","id":15},{"year":1793,"event":"대프랑스동맹(-1815)","mode":"input","sourceColumn":"E","id":16},{"year":1794,"event":"테르미도르 반동","mode":"input","sourceColumn":"B","id":17},{"year":1795,"event":"총재정부(-1799)","mode":"input","sourceColumn":"B","id":18},{"year":1798,"event":"나폴레옹 이집트 원정","mode":"choice","sourceColumn":"G","id":19},{"year":1799,"event":"통령정부(-1804)","mode":"input","sourceColumn":"B","id":20},{"year":1804,"event":"나폴레옹 법전","mode":"input","sourceColumn":"B","id":21},{"year":1804,"event":"나폴레옹 1세 즉위","mode":"input","sourceColumn":"C","id":22},{"year":1804,"event":"제1제정 시작","mode":"input","sourceColumn":"D","id":23},{"year":1805,"event":"트라팔가르 해전","mode":"input","sourceColumn":"B","id":24},{"year":1806,"event":"대륙 봉쇄령","mode":"input","sourceColumn":"B","id":25},{"year":1811,"event":"영.러다이트 운동(-1817)","mode":"input","sourceColumn":"H","id":26},{"year":1812,"event":"나폴레옹 러시아 원정 실패","mode":"choice","sourceColumn":"G","id":27},{"year":1814,"event":"빈 회의(-1815)","mode":"input","sourceColumn":"B","id":28},{"year":1815,"event":"워털루 전투","mode":"input","sourceColumn":"B","id":29},{"year":1815,"event":"빈 체제(1848)","mode":"input","sourceColumn":"C","id":30},{"year":1815,"event":"[빈체제반격] 독일.부르셴샤프트 운동","mode":"input","sourceColumn":"D","id":31},{"year":1815,"event":"[빈체제 반격] 이탈.카르보나리당 활동 업","mode":"input","sourceColumn":"E","id":32},{"year":1815,"event":"영.곡물법","mode":"input","sourceColumn":"H","id":33},{"year":1821,"event":"그리스 독립 전쟁(-1829)","mode":"input","sourceColumn":"B","id":34},{"year":1825,"event":"러.데카브리스트 봉기","mode":"input","sourceColumn":"J","id":35},{"year":1828,"event":"영.심사법 폐지","mode":"input","sourceColumn":"H","id":36},{"year":1829,"event":"영.가톨릭 해방법 제정","mode":"input","sourceColumn":"H","id":37},{"year":1830,"event":"프.7월혁명-벨기에독립","mode":"input","sourceColumn":"B","id":38},{"year":1831,"event":"이탈.청년이탈리아당 결성","mode":"input","sourceColumn":"I","id":39},{"year":1832,"event":"영.1차선거법 개정","mode":"input","sourceColumn":"H","id":40},{"year":1833,"event":"영.공장법","mode":"input","sourceColumn":"H","id":41},{"year":1834,"event":"독.관세동맹","mode":"input","sourceColumn":"I","id":42},{"year":1838,"event":"영.인민헌장 작성","mode":"input","sourceColumn":"H","id":43},{"year":1846,"event":"영.곡물법폐지","mode":"input","sourceColumn":"H","id":44},{"year":1848,"event":"프.2월혁명-오스트.3월혁명","mode":"input","sourceColumn":"B","id":45},{"year":1848,"event":"독.프랑크푸르트 국민 의회(-49)","mode":"input","sourceColumn":"I","id":46},{"year":1849,"event":"영.항해법 폐지","mode":"input","sourceColumn":"H","id":47},{"year":1849,"event":"이탈. 로마공화국 수립","mode":"input","sourceColumn":"I","id":48},{"year":1852,"event":"프.제2제정(-70)","mode":"input","sourceColumn":"B","id":49},{"year":1853,"event":"러.크림전쟁(-56)","mode":"input","sourceColumn":"I","id":50},{"year":1859,"event":"이탈.통일전쟁 (사르데냐vs.오스트)","mode":"input","sourceColumn":"J","id":51},{"year":1861,"event":"이탈리아 왕국 성립","mode":"input","sourceColumn":"F","id":52},{"year":1861,"event":"러.농노해방령 by알렉산드르2","mode":"input","sourceColumn":"I","id":53},{"year":1861,"event":"미.남북전쟁(-65)","mode":"input","sourceColumn":"J","id":54},{"year":1862,"event":"독. 비스마르크 취임","mode":"input","sourceColumn":"F","id":55},{"year":1863,"event":"미.노예해방령, 게티즈버그전투","mode":"input","sourceColumn":"J","id":56},{"year":1866,"event":"독.프오전쟁(프센)","mode":"input","sourceColumn":"B","id":57},{"year":1866,"event":"이탈.베네치아 병합","mode":"input","sourceColumn":"F","id":58},{"year":1867,"event":"독.북독일 연방 결성","mode":"input","sourceColumn":"B","id":59},{"year":1867,"event":"영.2차 선거법 개정","mode":"input","sourceColumn":"H","id":60},{"year":1869,"event":"미.대륙 횡단 철도 개통","mode":"input","sourceColumn":"J","id":61},{"year":1869,"event":"수에즈 운하 개통","mode":"input","sourceColumn":"K","id":62},{"year":1870,"event":"프.프프전쟁","mode":"input","sourceColumn":"B","id":63},{"year":1870,"event":"이탈. 통일 완성(교황령)","mode":"input","sourceColumn":"C","id":64},{"year":1871,"event":"프.파리코뮌","mode":"input","sourceColumn":"B","id":65},{"year":1871,"event":"독일 제국 성립","mode":"input","sourceColumn":"C","id":66},{"year":1873,"event":"러.브나로드 운동(-75)","mode":"input","sourceColumn":"I","id":67},{"year":1884,"event":"영.3차선거법개정","mode":"input","sourceColumn":"H","id":68}];
+    const STORAGE_KEY = 'modern-history-timeline-mastered-v1';
+    const PERIODS = { all: [0, 9999], early: [1789, 1815], middle: [1816, 1848], late: [1849, 1886] };
+    const $ = (id) => document.getElementById(id);
+    let mode = 'input';
+    let period = 'all';
+    let deck = [];
+    let deckIndex = 0;
+    let current = null;
+    let answered = false;
+    let mastered = loadMastered();
+    const shuffled = (arr) => { const a = arr.slice(); for (let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+    function loadMastered(){ try { const value=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'); return new Set(Array.isArray(value)?value:[]); } catch { return new Set(); } }
+    function saveMastered(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...mastered])); } catch {} updateProgress(); }
+    function filteredEvents(){const [min,max]=PERIODS[period];return EVENTS.filter(e=>e.mode===mode&&e.year>=min&&e.year<=max);}
+    function updateProgress(){const total=EVENTS.length;const known=EVENTS.filter(e=>mastered.has(e.id)).length;const pct=total?Math.round(known/total*100):0;$('progress-label').textContent=`${known} / ${total}개 · ${pct}%`;$('progress-fill').style.width=pct+'%';}
+    function updateCounts(){const visible=filteredEvents();const complete=visible.filter(e=>mastered.has(e.id)).length;const count=visible.length;$('question-count').textContent=count?`문제 ${Math.min(deckIndex+1,count)} / ${count} · 외움 ${complete}`:'문제 없음';}
+    function clearFeedback(){const f=$('feedback');f.className='feedback';f.textContent='';}
+    function makeDeck(){deck=shuffled(filteredEvents());deckIndex=0;renderQuestion();}
+    function renderQuestion(){
+      const list=deck.length?deck:filteredEvents();
+      current=list.length?list[deckIndex%list.length]:null;answered=false;clearFeedback();
+      $('next-button').disabled=true;$('reveal-button').disabled=!current;
+      $('input-tab').setAttribute('aria-pressed',String(mode==='input'));$('choice-tab').setAttribute('aria-pressed',String(mode==='choice'));
+      $('type-chip').textContent=mode==='input'?'주요 사건 · 직접 입력':'중요도 낮음 · 4지선다';$('type-chip').className='type-chip'+(mode==='choice'?' choice':'');
+      const inputMode=mode==='input';$('prompt-label').textContent=inputMode?'이 사건이 일어난 연도를 숫자로 입력하세요.':'이 사건이 일어난 연도를 선택하세요.';
+      $('answer-form').hidden=!inputMode;$('choice-grid').hidden=inputMode;
+      $('year-input').value='';$('year-input').disabled=!current;$('check-button').disabled=!current;
+      if(!current){
+        $('event-name').textContent='이 범위에는 해당 유형의 사건이 없습니다.';
+        $('answer-form').hidden=true;$('choice-grid').hidden=true;
+        $('next-button').disabled=true;$('reveal-button').disabled=true;
+        showFeedback('neutral',mode==='choice'?'4지선다 대상 사건은 1798년과 1812년에 있습니다. 학습 범위를 전체 또는 ‘혁명과 나폴레옹’으로 바꿔 주세요.':'이 학습 범위에 주요 사건이 없습니다.');
+        updateCounts();return;
+      }
+      $('event-name').textContent=current.event;
+      if(mode==='choice')renderChoices(); else $('choice-grid').replaceChildren();
+      updateCounts();
+    }
+    function renderChoices(){
+      const options=[current.year];const yearPool=[...new Set(EVENTS.map(e=>e.year))].filter(y=>y!==current.year);
+      for(const y of shuffled(yearPool)){if(options.length===4)break;options.push(y);}
+      const grid=$('choice-grid');grid.replaceChildren();
+      shuffled(options).forEach((year,i)=>{const button=document.createElement('button');button.type='button';button.className='choice-btn';button.dataset.year=String(year);const letter=document.createElement('span');letter.className='choice-letter';letter.textContent=['A','B','C','D'][i];button.append(letter,document.createTextNode(`${year}년`));button.addEventListener('click',()=>checkChoice(button,year));grid.append(button);});
+    }
+    function showFeedback(kind, html){const f=$('feedback');f.className=`feedback show ${kind}`;f.innerHTML=html;}
+    function markCorrect(){if(!current)return;mastered.add(current.id);saveMastered();}
+    function finishAnswer(isCorrect, chosenYear){
+      answered=true;$('year-input').disabled=true;$('check-button').disabled=true;$('choice-grid').querySelectorAll('button').forEach(b=>b.disabled=true);$('next-button').disabled=false;$('reveal-button').disabled=true;
+      if(isCorrect){markCorrect();showFeedback('good',`정답입니다. <strong>${current.year}년</strong>`);}
+      else{showFeedback('bad',`정답은 <strong>${current.year}년</strong>입니다.${chosenYear!==undefined?` 입력한 답: ${chosenYear}년`:''}`);}
+      updateCounts();
+    }
+    function checkChoice(button, year){
+      if(answered||!current)return;
+      $('choice-grid').querySelectorAll('button').forEach(b=>{if(Number(b.dataset.year)===current.year)b.classList.add('correct');});
+      if(year!==current.year)button.classList.add('wrong');
+      finishAnswer(year===current.year,year);
+    }
+    $('answer-form').addEventListener('submit',(event)=>{event.preventDefault();if(answered||!current)return;const raw=$('year-input').value.trim();if(!raw){$('year-input').focus();return;}const year=Number(raw);finishAnswer(year===current.year,year);});
+    $('next-button').addEventListener('click',()=>{if(!deck.length){makeDeck();return;}deckIndex++;if(deckIndex>=deck.length){deck=shuffled(filteredEvents());deckIndex=0;showFeedback('neutral','한 바퀴를 마쳤습니다. 문제 순서를 섞어 다시 시작합니다.');setTimeout(()=>{renderQuestion();},650);return;}renderQuestion();});
+    $('reveal-button').addEventListener('click',()=>{if(!current||answered)return;answered=true;$('year-input').disabled=true;$('check-button').disabled=true;$('choice-grid').querySelectorAll('button').forEach(b=>{b.disabled=true;if(Number(b.dataset.year)===current.year)b.classList.add('correct');});$('next-button').disabled=false;$('reveal-button').disabled=true;showFeedback('neutral',`정답은 <strong>${current.year}년</strong>입니다. 다시 나왔을 때 맞히면 암기 기록에 반영됩니다.`);});
+    $('input-tab').addEventListener('click',()=>{if(mode!=='input'){mode='input';makeDeck();}});
+    $('choice-tab').addEventListener('click',()=>{if(mode!=='choice'){mode='choice';makeDeck();}});
+    $('period-select').addEventListener('change',(e)=>{period=e.target.value;makeDeck();});
+    $('reset-button').addEventListener('click',()=>{if(confirm('저장된 암기 진도를 모두 초기화할까요?')){mastered.clear();saveMastered();makeDeck();}});
+    $('total-stat').innerHTML=`${EVENTS.length}<small>개</small>`;$('input-stat').innerHTML=`${EVENTS.filter(e=>e.mode==='input').length}<small>개</small>`;$('choice-stat').innerHTML=`${EVENTS.filter(e=>e.mode==='choice').length}<small>개</small>`;
+    updateProgress();makeDeck();
+  </script>
+</body>
+</html>
